@@ -1,0 +1,8 @@
+[ignore]
+*./node_modules/eslint-plugin-jsx-a11y/flow/.*
+[include]
+
+[libs]
+node_modules/mobx/lib/mobx.js.flow
+
+[options]

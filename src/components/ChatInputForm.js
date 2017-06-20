@@ -1,10 +1,15 @@
+// @flow
 import React, { Component } from 'react';
 import { inject, observer } from 'mobx-react'
 import './ChatWindow.css';
+import type { storeType } from '../types'
 
 class ChatWindow extends Component {
+  props: {
+    store: storeType
+  }
 
-  handleSubmit = (e) => {
+  handleSubmit = (e: Event) => {
     e.preventDefault()
     this.props.store.chat.sendMessage('test')
   }

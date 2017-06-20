@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "flow-typed": "^2.1.2",
     "hunspell-spellchecker": "^1.0.2",
     "mobx": "^3.1.15",
     "mobx-react": "^4.2.1",
@@ -12,12 +13,14 @@
     "superagent": "^3.5.2"
   },
   "devDependencies": {
+    "flow-bin": "^0.48.0",
     "react-scripts": "1.0.7"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "flow": "flow"
   }
 }
