@@ -1,13 +1,20 @@
 // @flow
 import Spellchecker from 'hunspell-spellchecker'
+import affFile from '../dictionary/mi_NZ.aff'
+import dictFile from '../dictionary/mi_NZ.dic'
+import request from 'superagent'
 
-const spellchecker = new Spellchecker()
-const DICT = spellchecker.parse({
-  // aff: affix,
-  // dic: dictionary
-})
-spellchecker.use(DICT)
+export default async function spellcheck (word: string) {
+  const aff = await request.get(affFile)
+  const dict = await request.get(dictFile)
 
-export default function spellcheck (word: string) {
+  const spellchecker = new Spellchecker()
+
+  const DICT = spellchecker.parse({
+      aff: aff.text,
+      dic: dict.text
+  })
+
+  spellchecker.use(DICT)
   return spellchecker.check(word)
 }

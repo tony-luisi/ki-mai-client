@@ -3,7 +3,7 @@ import {observable, action} from 'mobx'
 
 const testRoom = 'test'
 const io = window.io
-const socket = io('http://localhost:3000')
+const socket = io('http://localhost:3000') // TODO put this in an environment variable?
 
 class ChatStore {
 
