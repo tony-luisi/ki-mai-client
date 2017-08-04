@@ -1,5 +1,5 @@
 // @flow
-import {observable, action} from 'mobx'
+import {observable, action } from 'mobx'
 
 const testRoom = 'test'
 const io = window.io
