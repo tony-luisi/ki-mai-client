@@ -8,6 +8,10 @@ import './InputCheck.css';
 
 class InputCheck extends Component {
 
+  handleDefine = (e) => {
+    console.log(e.target.name)
+  }
+
   checkSpelling = () => {
     const words = this.props.store.chat.inputMessage.inputMessage.split(' ')
     return words.map(word => ({
@@ -21,15 +25,13 @@ class InputCheck extends Component {
     return (
       <div>
         {spellwords.map((wordObject, i) => {
-          const suggestions = spellcheck.suggestSpelling(wordObject.word)
           return (
             <div key={i}>
               <div className={classNames({highlight: !wordObject.correct})}>{wordObject.word}</div>
-              {suggestions.map((suggestion, j) => {
-                return (
-                  <div key={j}>{suggestion}</div>
-                )
-              })}
+              <button name={wordObject.word} onClick={this.handleDefine}>Define</button>
+              {!wordObject.correct &&
+                <button>Suggest Spelling</button>
+              }
             </div>
           )
         })}
